@@ -96,7 +96,7 @@ class LoggingCapture(BufferingHandler):
         self.buffer = []
 
     def getvalue(self):
-        return '\n'.join(self.formatter.format(r) for r in self.buffer)
+        return '\n'.join(self.formatter.format(r).decode('utf-8') for r in self.buffer)
 
     def find_event(self, pattern):
         """Search through the buffer for a message that matches the given

@@ -56,7 +56,8 @@ class ExceptionUtil(object):
     def describe(cls, exception, use_traceback=False, prefix=""):
         # -- NORMAL CASE:
         text = u"{prefix}{0}: {1}\n".format(exception.__class__.__name__,
-                                            exception, prefix=prefix)
+                                            str(exception).decode('cp1252'),
+                                            prefix=prefix)
         if use_traceback:
             exc_traceback = cls.get_traceback(exception)
             if exc_traceback:

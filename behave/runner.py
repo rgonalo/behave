@@ -474,7 +474,7 @@ class ModelRunner(object):
 
                 error_text = ExceptionUtil.describe(e, use_traceback).rstrip()
                 error_message = u"HOOK-ERROR in %s%s: %s" % (name, extra, error_text)
-                print(error_message)
+                print(error_message.encode('utf-8'))
                 self.hook_failures += 1
                 if "tag" in name:
                     # -- SCENARIO or FEATURE
